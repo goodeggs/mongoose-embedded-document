@@ -12,9 +12,30 @@ A Mongoose plugin to provide support for embedding single documents.
 npm install mongoose-embedded-document
 ```
 
-```js
-var mongooseEmbeddedDocument = require('mongoose-embedded-document');
+```coffee
+var embeddedDoc = require 'mongoose-embedded-document
+
+
+embeddedSchema = new mongoose.Schema name: String
+Embedded = mongoose.model('Embedded', embeddedSchema)
+
+schema = new mongoose.Schema deep: {}
+schema.plugin embeddedDoc, path: 'embedded', ref: 'Embedded', required: true
+schema.plugin embeddedDoc, path: 'deep.embedded', ref: 'Embedded'
+Parent = mongoose.model('Parent', schema)
+
+parent = new Parent embedded: new Embedded(name: 'My Name')
+parent.deep.embedded = new Embedded(name: 'My Deep Name')
+
+console.log parent.embedded.name      # Logs 'My Name'
+console.log parent.deep.embedded.name # Logs 'My Deep Name'
 ```
+
+# Known Issues
+
+This plugin uses `Schema.Types.Mixed` for the type of the embedded document. This means that the parent schema does not
+know the types of the attributes of the embedded document. This can be an issue when you are used to relying on
+Mongoose's type casting in queries for attributes of type `ObjectId` and `Date` in particular.
 
 ## Contributing
 
