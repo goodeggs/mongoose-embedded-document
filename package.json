@@ -10,7 +10,7 @@
   "keywords": [
     "mongoose plugin"
   ],
-  "main": "lib/index.js",
+  "main": "lib/plugin.js",
   "repository": {
     "type": "git",
     "url": "git://github.com/goodeggs/mongoose-embedded-document.git"
@@ -22,7 +22,9 @@
     "coffee-script": ">=1.8.x",
     "mocha": "~1.x.x",
     "chai": "~1.x.x",
-    "mocha-sinon": "~1.x.x"
+    "mocha-sinon": "~1.x.x",
+    "mongoose": "~3.6.17",
+    "fibrous": "~0.3.3"
   },
   "scripts": {
     "compile": "coffee --bare --compile --output lib/ src/",
