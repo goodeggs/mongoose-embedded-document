@@ -1,0 +1,33 @@
+{
+  "name": "mongoose-embedded-document",
+  "version": "1.0.0",
+  "description": "A Mongoose plugin to provide support for embedding single documents.",
+  "author": "Good Eggs <open-source@goodeggs.com>",
+  "contributors": [
+    "Alon Salant <alon@salant.org>"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "mongoose plugin"
+  ],
+  "main": "lib/index.js",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/goodeggs/mongoose-embedded-document.git"
+  },
+  "homepage": "https://github.com/goodeggs/mongoose-embedded-document",
+  "bugs": "https://github.com/goodeggs/mongoose-embedded-document/issues",
+  "dependencies": {},
+  "devDependencies": {
+    "coffee-script": ">=1.8.x",
+    "mocha": "~1.x.x",
+    "chai": "~1.x.x",
+    "mocha-sinon": "~1.x.x"
+  },
+  "scripts": {
+    "compile": "coffee --bare --compile --output lib/ src/",
+    "prepublish": "npm run compile",
+    "pretest": "npm run compile",
+    "test": "mocha"
+  }
+}
