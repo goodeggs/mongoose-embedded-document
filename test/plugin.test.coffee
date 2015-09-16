@@ -87,7 +87,7 @@ describe 'embeddedDoc', ->
       obj = new TestObject()
       obj.embedded = emb
       expect(-> obj.sync.save()).to.throw()
-      expect(obj.errors['embedded.name'].type).to.equal 'Name must be 3 or more characters'
+      expect(obj.errors['embedded.name'].message).to.equal 'Name must be 3 or more characters'
 
     it 'round trips on save', fibrous ->
       emb = new Embedded name: 'Foo'
