@@ -145,6 +145,19 @@ describe 'embeddedDoc', ->
         expect(obj.embedded.modifiedPaths()).to.eql ['name']
         expect(obj.modifiedPaths()).to.eql ['embedded', 'embedded.name']
 
+    describe 'assigning null', ->
+      beforeEach ->
+        obj.embedded = null
+
+      it 'unsets the embedded', ->
+        expect(obj.embedded).to.be.null
+
+      it '.isModified returns true', ->
+        expect(obj.isModified()).to.equal true
+
+      it '.modifiedPaths', ->
+        expect(obj.modifiedPaths()).to.eql ['embedded']
+
     describe 'a root set with an object that does not include _id', ->
       beforeEach ->
         obj.embedded = {name: 'Foo'}
