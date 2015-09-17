@@ -1,6 +1,6 @@
 {
   "name": "mongoose-embedded-document",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A Mongoose plugin to provide support for embedding single documents.",
   "author": "Good Eggs <open-source@goodeggs.com>",
   "contributors": [
