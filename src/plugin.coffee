@@ -50,11 +50,12 @@ module.exports = (schema, options = {}) ->
       propertyName = "#{options.path}#{modelClass.schema.name}"
       @[propertyName] ?= newEmbedded(modelClass, data, @)
     set: (data) ->
-      return null if !data?
-
       # Do this lazily help with circular dependencies in the Model definition files.
       modelClass = mongoose.model options.ref, false, false
       propertyName = "#{options.path}#{modelClass.schema.name}"
+
+      return @[propertyName] = null if !data?
+
       if isSameDocument(@[propertyName], data)
         @[propertyName].set(data.toObject?() or data)
       else
